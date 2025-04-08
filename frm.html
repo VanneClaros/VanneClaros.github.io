@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO DE REGISTRO</title>
+    <link rel="stylesheet" href="estil.css">
+</head>
+<body>
+    <form class="formulario" action="formulario" id="frm">
+        <h2>FORMULARIO DE REGISTRO</h2>
+            <input type="text" placeholder="Nombre" id="Nombre">
+            <input type="email" placeholder="Email" id="Email">
+            <textarea name="area" id="area" placeholder="Mensaje"></textarea>
+            <button type="submit">Registrar</button>
+    </form>
+    <div class="modal" id="notificacion">
+        <div class="model-contenido">
+        </div>
+    </div>
+</body>
+<script>
+    const formulario=document.getElementById("frm");
+    formulario.addEventListener("submit",(event)=>{
+    event.preventDefault();
+    const Nombre=document.getElementById("Nombre").value;
+    const Email=document.getElementById("Email").value;
+    const Area=document.getElementById("area").value;
+    const Notificacion= `
+        <label>Nombre: ${Nombre}</label><br>
+        <label>Email: ${Email}</label><br>
+        <label>Mensaje: ${Area}</label>
+    `;
+    const insert=document.getElementById("notificacion");
+    insert.innerHTML=Notificacion;
+    }) 
+</script>
+</html>
